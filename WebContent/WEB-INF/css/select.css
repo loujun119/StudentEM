@@ -1,0 +1,36 @@
+.titel {
+	width: 90%;
+	height: 15%;
+	margin: auto;
+}
+
+.box {
+	width: 90%;
+	height: 1200px;
+	margin: auto;
+	/*ackground-color: aqua;*/
+}
+
+.box1 {
+	width: 60%;
+	height: 60%;
+	float: left;
+}
+
+table {
+	width: 95%;
+}
+
+.box2 {
+	width: 30%;
+	float: left;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+.box4 {
+	width: 90%;
+	height: 15%;
+	margin: auto;
+}

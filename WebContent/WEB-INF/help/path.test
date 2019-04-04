@@ -1,0 +1,21 @@
+路径问题；
+1.相对路径-在JSP页面中，是相对于“url请求的地址”去寻找资源，容易出现地址混乱。
+2.绝对路径，通过代码调取整个服务器的指定路径
+   方法一
+      在JSP页面端，获取本项目的绝对路径（如工程名叫Student,那么获得的地址就是http://localhost:8080/student/）
+      代码--  <%String page = request.getContextPath();
+            pageContext.setAttribute("basePath",path) %>;
+          <a href="${pageScope.basePath}/WebContent/WEB-INF/***.jsp">
+  方法二
+  利用html中的 <base>标签
+  base 标签可以规定页面中所有连接的基准url。
+  默认情况下，页面中的连接（包括样式表，脚本，图像的地址）都是相对与当前页面的地址（即浏览器地址栏里的请求URL）,
+  可以使用<base>标签中的href属性来设置，所有的"相对基准URL".
+
+  代码--
+  <html>
+  <head>
+  <!-- base需要放到head中 -->
+  <base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
+
+                                http://localhost:8080/StudentEM/

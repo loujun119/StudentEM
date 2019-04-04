@@ -1,0 +1,45 @@
+#titel #foot {
+	width: 90%;
+	height: 15%;
+	margin: auto;
+}
+
+#tablebox {
+	width: 90%;
+	height: 60%;
+	margin: 0, 0, 100px, 0;
+}
+
+#table {
+	width: 70%;
+}
+
+#page {
+	width: 50%;
+	height: 70px;
+	margin: auto;
+}
+
+#page1 {
+	float: left;
+}
+
+#page2 {
+	float: left;
+}
+
+#page3 {
+	float: left;
+}
+
+#page4 {
+	float: left;
+}
+
+#page5 {
+	float: left;
+}
+
+#page6 {
+	float: right;
+}
