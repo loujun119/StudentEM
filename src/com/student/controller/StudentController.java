@@ -38,8 +38,7 @@ public class StudentController {
 		return getStuDao;
 	}
 
-
-	@RequestMapping(value="/goToHomePage")
+	@RequestMapping(value = "/goToHomePage")
 	public String goToSystemPage() {
 		return "welcome";
 	}
@@ -174,9 +173,6 @@ public class StudentController {
 		return "update";
 	}
 
-
-
-
 	/**
 	 * 指定文件下载方式
 	 *
@@ -207,5 +203,7 @@ public class StudentController {
 		// 关闭IN接口
 		in.close();
 	}
+
+
 
 }

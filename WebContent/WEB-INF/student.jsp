@@ -9,6 +9,25 @@
 <link href="css/student.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="./js/student.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btnExport").click(function() {
+		html2canvas(document.getElementById('table'), {
+			onrendered : function(canvas) {
+				var data = canvas.toDataURL();
+				var docDefinition = {
+					content : [ {
+						image : data,
+						width : 500
+					} ]
+				};
+				pdfMake.createPdf(docDefinition).download("student.pdf");
+			}
+		})
+})
+</script>
 <base
 	href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
 <title>学生管理システム</title>
@@ -88,8 +107,30 @@
 		</div>
 
 	</div>
-
-	<button id="butttttt" type="button">tttttt</button>
+	<div>
+		<h3>ダウンロード</h3>
+		<div id="down">
+			<a href="goToDownLoadFile">指定文件ダウンロード</a>
+		</div>
+		<div id="downword">
+			<h4>WORD学生のテーブルをダウンロード</h4>
+			<form action="downLoadFileToWord" method="post">
+				<input id="downloadWord" type="text" placeholder="ファイル名" name="name">
+				<input type="submit" value="word">
+			</form>
+		</div>
+		<div id="downexcel">
+			<h4>Excel学生のテーブルをダウンロード</h4>
+			<form action="downLoadFileToExcel" method="post">
+				<input id="downloadExcel" type="text" placeholder="ファイル名"
+					name="name"> <input type="submit" value="Excel">
+			</form>
+		</div>
+		<div id="downpdf">
+			<h4>PDF学生のテーブルをダウンロード</h4>
+			<input type="button" id="btnExport" value="DownLoad" />
+		</div>
+	</div>
 
 	<br>
 	<br>
@@ -98,6 +139,29 @@
 		<hr>
 		<a href="goToHomePage">ホームページへ帰る</a> <br> <br>
 	</div>
-	<a href="WebContent\WEB-INF\welcome.jsp">gogogo</a>
+
+			<table id="studentList" border="3" align="center">
+			<tr>
+				<th>順番</th>
+				<th>名前</th>
+				<th>生年月日</th>
+				<th>年齢</th>
+				<th>成績</th>
+				<th>クラスナンバー</th>
+				<th>住所</th>
+			</tr>
+			<c:forEach items="${downStudent}" var="student">
+				<tr>
+					<th>${student.id}</th>
+					<th>${student.name}</th>
+					<th>${student.birthday}</th>
+					<th>${student.age}</th>
+					<th>${student.score}</th>
+					<th>${student.classId}</th>
+					<th>${student.address}</th>
+				</tr>
+			</c:forEach>
+		</table>
+
 </body>
 </html>
