@@ -14,7 +14,7 @@ import com.student.dao.AccountDao;
 @Controller
 public class AccountController {
 
-
+　　//Test
 	private static AccountDao getAccountDao() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		AccountDao getAccDao = (AccountDao) context.getBean("AccDao");
